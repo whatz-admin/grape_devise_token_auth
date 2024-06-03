@@ -33,6 +33,7 @@ module GrapeDeviseTokenAuth
 
     def auth_headers_from_resource
       auth_headers = {}
+      resource.save! ### Test
       resource.with_lock do
         if token.present?
           if !GrapeDeviseTokenAuth.change_headers_on_each_request
